@@ -1,0 +1,10 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\BusinessLogicLayer",
+    "\\BusinessLogicLayer\\Repository",
+    "\\ProductWebAPI"
+  ],
+  "SelectedNode": "\\BusinessLogicLayer\\Repository\\ProductRepository.cs",
+  "PreviewInSolutionExplorer": false
+}

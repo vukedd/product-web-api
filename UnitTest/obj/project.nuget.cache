@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "CQ0XMxJ3AMY=",
+  "dgSpecHash": "PlAMBcwVw74=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Thinkpad\\source\\repos\\ProductWebAPI\\UnitTest\\UnitTest.csproj",
+  "projectFilePath": "C:\\Users\\Thinkpad\\source\\repos\\ProductWebAPI\\Product-Web-API\\UnitTest\\UnitTest.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Thinkpad\\.nuget\\packages\\castle.core\\5.1.1\\castle.core.5.1.1.nupkg.sha512",
     "C:\\Users\\Thinkpad\\.nuget\\packages\\coverlet.collector\\6.0.0\\coverlet.collector.6.0.0.nupkg.sha512",

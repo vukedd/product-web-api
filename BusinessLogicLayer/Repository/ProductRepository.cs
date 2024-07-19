@@ -16,7 +16,6 @@ namespace ProductWebAPI.Repository
         {
             _context = context;
         }
-
         public async Task<ActionResult<Product>> CreateProduct(ProductDTO NewProduct)
         { 
             await _context.Products.AddAsync(NewProduct.ToProductFromProductDTO());
@@ -59,11 +58,9 @@ namespace ProductWebAPI.Repository
             return await products.ToListAsync();
         }
 
-        /**
-        private Task<ActionResult<bool>> ProductExists(String name)
+        private bool ProductExists(String name)
         {
-            
+            return true;   
         }
-        **/
     }
 }

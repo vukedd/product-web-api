@@ -3829,11 +3829,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Thinkpad\\source\\repos\\ProductWebAPI\\BusinessLogicLayer\\BusinessLogicLayer.csproj",
+      "projectUniqueName": "C:\\Users\\Thinkpad\\source\\repos\\ProductWebAPI\\Product-Web-API\\BusinessLogicLayer\\BusinessLogicLayer.csproj",
       "projectName": "BusinessLogicLayer",
-      "projectPath": "C:\\Users\\Thinkpad\\source\\repos\\ProductWebAPI\\BusinessLogicLayer\\BusinessLogicLayer.csproj",
+      "projectPath": "C:\\Users\\Thinkpad\\source\\repos\\ProductWebAPI\\Product-Web-API\\BusinessLogicLayer\\BusinessLogicLayer.csproj",
       "packagesPath": "C:\\Users\\Thinkpad\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Thinkpad\\source\\repos\\ProductWebAPI\\BusinessLogicLayer\\obj\\",
+      "outputPath": "C:\\Users\\Thinkpad\\source\\repos\\ProductWebAPI\\Product-Web-API\\BusinessLogicLayer\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Thinkpad\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -3851,8 +3851,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\Thinkpad\\source\\repos\\ProductWebAPI\\DataAccessLayer\\DataAccessLayer.csproj": {
-              "projectPath": "C:\\Users\\Thinkpad\\source\\repos\\ProductWebAPI\\DataAccessLayer\\DataAccessLayer.csproj"
+            "C:\\Users\\Thinkpad\\source\\repos\\ProductWebAPI\\Product-Web-API\\DataAccessLayer\\DataAccessLayer.csproj": {
+              "projectPath": "C:\\Users\\Thinkpad\\source\\repos\\ProductWebAPI\\Product-Web-API\\DataAccessLayer\\DataAccessLayer.csproj"
             }
           }
         }
