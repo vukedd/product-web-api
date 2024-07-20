@@ -295,3 +295,7 @@ C:\Users\Thinkpad\source\repos\ProductWebAPI\Product-Web-API\ProductWebAPI\obj\D
 C:\Users\Thinkpad\source\repos\ProductWebAPI\Product-Web-API\ProductWebAPI\obj\Debug\net8.0\PresentationLayer.pdb
 C:\Users\Thinkpad\source\repos\ProductWebAPI\Product-Web-API\ProductWebAPI\obj\Debug\net8.0\PresentationLayer.genruntimeconfig.cache
 C:\Users\Thinkpad\source\repos\ProductWebAPI\Product-Web-API\ProductWebAPI\obj\Debug\net8.0\ref\PresentationLayer.dll
+C:\Users\Thinkpad\source\repos\ProductWebAPI\Product-Web-API\ProductWebAPI\bin\Debug\net8.0\xunit.abstractions.dll
+C:\Users\Thinkpad\source\repos\ProductWebAPI\Product-Web-API\ProductWebAPI\bin\Debug\net8.0\xunit.assert.dll
+C:\Users\Thinkpad\source\repos\ProductWebAPI\Product-Web-API\ProductWebAPI\bin\Debug\net8.0\xunit.core.dll
+C:\Users\Thinkpad\source\repos\ProductWebAPI\Product-Web-API\ProductWebAPI\bin\Debug\net8.0\xunit.execution.dotnet.dll

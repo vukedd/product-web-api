@@ -5,7 +5,7 @@ namespace ProductWebAPI.DTO
     public class ProductDTO
     {
         [Required]
-        [MinLength(1)]
+        [MinLength(3)]
         [MaxLength(30)]
         public string Name { get; set; }
         [Required]

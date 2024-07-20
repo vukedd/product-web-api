@@ -1,30 +1,35 @@
-﻿/*using Xunit;
+﻿using Xunit;
+using Moq;
 using Microsoft.EntityFrameworkCore;
 using ProductWebAPI.Data;
-using ProductWebAPI.Models;
-using ProductWebAPI.Repository;
+using ProductWebAPI.DTO;
 using ProductWebAPI.Interface;
+using ProductWebAPI.Models;
+using BusinessLogicLayer.Service;
+using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 using System.Collections.Generic;
-using Microsoft.AspNetCore.Mvc;
 using System.Linq;
 using DataAccessLayer.Helpers;
+using ProductWebAPI.Mapper;
 
-namespace ProductWebAPI.Tests
+namespace BusinessLogicLayer.Tests
 {
-    public class ProductRepositoryTests
+    public class ProductServiceTests
     {
         private readonly DataContext _context;
-        private readonly ProductRepository _repository;
+        private readonly Mock<IProductRepository> _mockProductRepo;
+        private readonly ProductService _productService;
 
-        public ProductRepositoryTests()
+        public ProductServiceTests()
         {
             var options = new DbContextOptionsBuilder<DataContext>()
-                .UseInMemoryDatabase(databaseName: "ProductTestDb")
+                .UseInMemoryDatabase(databaseName: "ProductServiceTestDb")
                 .Options;
 
             _context = new DataContext(options);
-            _repository = new ProductRepository(_context);
+            _mockProductRepo = new Mock<IProductRepository>();
+            _productService = new ProductService(_context, _mockProductRepo.Object);
 
             // Seed data
             if (!_context.Products.Any())
@@ -40,46 +45,42 @@ namespace ProductWebAPI.Tests
         }
 
         [Fact]
-        public async Task CreateProduct_AddsProductToContext()
+        public async Task CreateProductAsync_CreatesProduct()
         {
-            var product = new Product { Name = "Test Product", Description = "Description", Price = 10 };
+            var productDto = new ProductDTO { Name = "Test Product", Description = "Description", Price = 10 };
+            var product = new Product { Id = 3, Name = productDto.Name, Description = productDto.Description, Price = productDto.Price };
 
-            var result = await _repository.CreateProduct(product);
+            _mockProductRepo.Setup(repo => repo.CreateProduct(It.IsAny<Product>()))
+                .ReturnsAsync(new ActionResult<Product>(product));
+
+            var result = await _productService.CreateProductAsync(productDto);
 
             Assert.Equal(product, result.Value);
-            Assert.Equal(2, _context.Products.Count());
         }
 
         [Fact]
-        public async Task CreateProduct_DoesntAddProductToContext()
-        {
-            var product = new Product { Name = "", Description = "", Price = 0 };
-
-            var result = await _repository.CreateProduct(product);
-
-            Assert.Equal(product, result.Value);
-            Assert.Equal(2, _context.Products.Count());
-        }
-
-        [Fact]
-        public async Task DeleteProduct_RemovesProductFromContext()
+        public async Task DeleteProduct_DeletesProduct()
         {
             var product = await _context.Products.FindAsync(1);
 
-            var result = await _repository.DeleteProduct(product);
+            _mockProductRepo.Setup(repo => repo.DeleteProduct(product))
+                .ReturnsAsync(new ActionResult<Product>(product));
+
+            var result = await _productService.DeleteProduct(1);
 
             Assert.Equal(product, result.Value);
-            Assert.Equal(1, _context.Products.Count());
         }
 
         [Fact]
-        public async Task EditProduct_UpdatesProductInContext()
+        public async Task EditProductAsync_UpdatesProduct()
         {
-            var updatedProduct = new Product { Id = 1, Name = "Updated Product", Description = "Updated Description", Price = 20 };
-
-            var result = await _repository.EditProduct(1, updatedProduct);
-
+            var productDto = new ProductDTO { Name = "Updated Product", Description = "Updated Description", Price = 20 };
             var product = await _context.Products.FindAsync(1);
+
+            _mockProductRepo.Setup(repo => repo.EditProduct(It.IsAny<Product>()))
+                .ReturnsAsync(new ActionResult<Product>(product));
+
+            var result = await _productService.EditProductAsync(1, productDto);
 
             Assert.Equal("Updated Product", product.Name);
             Assert.Equal("Updated Description", product.Description);
@@ -87,62 +88,32 @@ namespace ProductWebAPI.Tests
         }
 
         [Fact]
-        public async Task GetProductById_ReturnsProductFromContext()
+        public async Task GetProductByIdAsync_ReturnsProduct()
         {
-            // Ensure context is empty or has unique keys
-            _context.Products.RemoveRange(_context.Products);
-            await _context.SaveChangesAsync();
+            var product = await _context.Products.FindAsync(1);
 
-            // Add a product to the context
-            var product = new Product
-            {
-                Id = 1,
-                Name = "Product1",
-                Description = "Description1",
-                Price = 10
-            };
+            _mockProductRepo.Setup(repo => repo.GetProductById(1))
+                .ReturnsAsync(new ActionResult<Product>(product));
 
-            _context.Products.Add(product);
-            await _context.SaveChangesAsync();
+            var result = await _productService.GetProductByIdAsync(1);
 
-            // Retrieve the product by ID
-            var result = await _repository.GetProductById(1);
-
-            // Assert that the retrieved product matches the expected values
-            Assert.NotNull(result);
-            Assert.Equal(1, result.Value.Id);
-            Assert.Equal("Product1", result.Value.Name);
+            Assert.Equal(product, result.Value);
         }
 
-        [Fact]
-        public async Task GetProductById_DoesntReturnProductFromContext()
-        { 
-
-            // Retrieve the product by ID
-            var result = await _repository.GetProductById(int.MaxValue);
-
-            // Assert that the retrieved product matches the expected values
-            Assert.Null(result.Value);
-        }
 
         [Fact]
-        public async Task GetProducts_ReturnsFilteredProductsFromContext()
+        public async Task GetProductsAsync_ReturnsFilteredProducts()
         {
             var query = new QueryObject { Name = "Product1" };
-            var result = await _repository.GetProducts(query);
+            var products = _context.Products.Where(p => p.Name.Contains(query.Name)).ToList();
+
+            _mockProductRepo.Setup(repo => repo.GetProducts(query))
+                .ReturnsAsync(new ActionResult<List<Product>>(products));
+
+            var result = await _productService.GetProductsAsync(query);
 
             Assert.Single(result.Value);
             Assert.Equal("Product1", result.Value[0].Name);
         }
-
-        public async Task GetProducts_DoesntReturnFilteredProductsFromContext()
-        {
-            var query = new QueryObject { Name = "qiojfoiqwjfoij12e" };
-            var result = await _repository.GetProducts(query);
-
-            Assert.Null(result);
-        }
     }
 }
-
-**/

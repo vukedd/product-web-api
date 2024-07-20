@@ -1779,7 +1779,9 @@
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "8.0.7",
           "Microsoft.EntityFrameworkCore": "8.0.7",
           "Microsoft.EntityFrameworkCore.Sqlite": "8.0.7",
-          "Microsoft.Extensions.Identity.Core": "8.0.7"
+          "Microsoft.Extensions.Identity.Core": "8.0.7",
+          "xunit": "2.9.0",
+          "xunit.assert": "2.9.0"
         },
         "runtime": {
           "BusinessLogicLayer.dll": {}

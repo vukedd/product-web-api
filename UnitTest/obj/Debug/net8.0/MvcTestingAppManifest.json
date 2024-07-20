@@ -1,5 +1,5 @@
 {
-  "BusinessLogicLayer, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "C:\\Users\\Thinkpad\\source\\repos\\ProductWebAPI\\BusinessLogicLayer",
-  "DataAccessLayer, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "C:\\Users\\Thinkpad\\source\\repos\\ProductWebAPI\\DataAccessLayer",
-  "PresentationLayer, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "C:\\Users\\Thinkpad\\source\\repos\\ProductWebAPI\\ProductWebAPI"
+  "BusinessLogicLayer, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "C:\\Users\\Thinkpad\\source\\repos\\ProductWebAPI\\Product-Web-API\\BusinessLogicLayer",
+  "DataAccessLayer, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "C:\\Users\\Thinkpad\\source\\repos\\ProductWebAPI\\Product-Web-API\\DataAccessLayer",
+  "PresentationLayer, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "C:\\Users\\Thinkpad\\source\\repos\\ProductWebAPI\\Product-Web-API\\ProductWebAPI"
 }

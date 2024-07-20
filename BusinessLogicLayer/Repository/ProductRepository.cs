@@ -16,12 +16,12 @@ namespace ProductWebAPI.Repository
         {
             _context = context;
         }
-        public async Task<ActionResult<Product>> CreateProduct(ProductDTO NewProduct)
+        public async Task<ActionResult<Product>> CreateProduct(Product NewProduct)
         { 
-            await _context.Products.AddAsync(NewProduct.ToProductFromProductDTO());
+            await _context.Products.AddAsync(NewProduct);
             await _context.SaveChangesAsync();
 
-            return NewProduct.ToProductFromProductDTO();
+            return NewProduct;
         }
 
         public async Task<ActionResult<Product>> DeleteProduct(Product ProductForDeletion)
@@ -58,9 +58,13 @@ namespace ProductWebAPI.Repository
             return await products.ToListAsync();
         }
 
-        private bool ProductExists(String name)
+        public bool ProductExists(String name)
         {
-            return true;   
+            var product = _context.Products.Where(p => p.Name == name).FirstOrDefault();
+            if (product == null)
+                return false;
+
+            return true;
         }
     }
 }

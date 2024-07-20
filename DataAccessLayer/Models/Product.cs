@@ -7,7 +7,7 @@ namespace ProductWebAPI.Models
     {
         public int Id { get; set; }
         [Required]
-        [MinLength(1)]
+        [MinLength(3)]
         [MaxLength(30)]
         public string Name { get; set; } = String.Empty;
         [Required]

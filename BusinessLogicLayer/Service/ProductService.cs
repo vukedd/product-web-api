@@ -27,7 +27,12 @@ namespace BusinessLogicLayer.Service
 
         public async Task<ActionResult<Product>> CreateProductAsync(ProductDTO product)
         {
-            return await _productRepo.CreateProduct(product);
+            if ((product.Name.Length >= 3 && product.Name.Length <= 20) && (product.Description.Length >= 0 && product.Description.Length <= 120) && (product.Price > 0))
+            {
+                return await _productRepo.CreateProduct(product.ToProductFromProductDTO());
+
+            }
+            return null;
         }
 
         public async Task<ActionResult<Product?>> DeleteProduct(int productId)

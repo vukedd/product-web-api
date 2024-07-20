@@ -10,7 +10,7 @@ namespace ProductWebAPI.Interface
         public Task<ActionResult<List<Product>>> GetProducts(QueryObject query);
         public Task<ActionResult<Product>> GetProductById(int id);
         public Task<ActionResult<Product>> EditProduct(Product productChanges);
-        public Task<ActionResult<Product>> CreateProduct(ProductDTO NewProduct);
+        public Task<ActionResult<Product>> CreateProduct(Product NewProduct);
         public Task<ActionResult<Product>> DeleteProduct(Product ProductForDeletion);
 
     }
