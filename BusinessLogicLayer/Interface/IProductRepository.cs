@@ -12,6 +12,7 @@ namespace ProductWebAPI.Interface
         public Task<ActionResult<Product>> EditProduct(Product productChanges);
         public Task<ActionResult<Product>> CreateProduct(Product NewProduct);
         public Task<ActionResult<Product>> DeleteProduct(Product ProductForDeletion);
+        public bool ProductExists(string name);
 
     }
 }

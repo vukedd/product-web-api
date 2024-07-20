@@ -57,14 +57,13 @@ namespace ProductWebAPI.Repository
 
             return await products.ToListAsync();
         }
-
-        public bool ProductExists(String name)
+        public bool ProductExists(string name)
         {
-            var product = _context.Products.Where(p => p.Name == name).FirstOrDefault();
-            if (product == null)
-                return false;
+            var product = _context.Products.Where(p => p.Name.ToLower() == name.ToLower()).FirstOrDefault();
+            if (product != null)
+                return true;
 
-            return true;
+            return false;
         }
     }
 }

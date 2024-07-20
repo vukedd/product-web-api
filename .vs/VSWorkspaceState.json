@@ -3,8 +3,9 @@
     "",
     "\\BusinessLogicLayer",
     "\\BusinessLogicLayer\\Repository",
-    "\\ProductWebAPI"
+    "\\ProductWebAPI",
+    "\\UnitTest"
   ],
-  "SelectedNode": "\\BusinessLogicLayer\\Repository\\ProductRepository.cs",
+  "SelectedNode": "\\UnitTest\\ProductRepoTest.cs",
   "PreviewInSolutionExplorer": false
 }

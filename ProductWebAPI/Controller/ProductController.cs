@@ -81,7 +81,12 @@ namespace ProductWebAPI.Controller
 
             var product = await _productService.CreateProductAsync(NewProduct);
 
-            return Ok(product);
+            if (product.Value != null)
+            {
+                return Ok(product);
+            }
+
+            return StatusCode(409, "Product already exists!");
         }
 
         [HttpDelete]

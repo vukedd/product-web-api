@@ -27,12 +27,11 @@ namespace BusinessLogicLayer.Service
 
         public async Task<ActionResult<Product>> CreateProductAsync(ProductDTO product)
         {
-            if ((product.Name.Length >= 3 && product.Name.Length <= 20) && (product.Description.Length >= 0 && product.Description.Length <= 120) && (product.Price > 0))
+            if (_productRepo.ProductExists(product.Name))
             {
-                return await _productRepo.CreateProduct(product.ToProductFromProductDTO());
-
+                return new ConflictObjectResult("Product with the same name already exists");
             }
-            return null;
+            return await _productRepo.CreateProduct(product.ToProductFromProductDTO());
         }
 
         public async Task<ActionResult<Product?>> DeleteProduct(int productId)
