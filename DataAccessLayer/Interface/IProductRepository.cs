@@ -1,6 +1,5 @@
 ﻿using DataAccessLayer.Helpers;
 using Microsoft.AspNetCore.Mvc;
-using ProductWebAPI.DTO;
 using ProductWebAPI.Models;
 
 namespace ProductWebAPI.Interface

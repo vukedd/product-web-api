@@ -2,10 +2,12 @@
   "ExpandedNodes": [
     "",
     "\\BusinessLogicLayer",
-    "\\BusinessLogicLayer\\Repository",
+    "\\BusinessLogicLayer\\Service",
+    "\\DataAccessLayer",
+    "\\DataAccessLayer\\Data",
     "\\ProductWebAPI",
     "\\UnitTest"
   ],
-  "SelectedNode": "\\UnitTest\\ProductRepoTest.cs",
+  "SelectedNode": "\\ProductWebAPI.sln",
   "PreviewInSolutionExplorer": false
 }

@@ -1,9 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using DataAccessLayer.Models;
+using Microsoft.AspNetCore.Mvc;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ProductWebAPI.Models
 {
-    public class Product
+   [Table("Products")]
+   public class Product
     {
         public int Id { get; set; }
         [Required]
@@ -16,5 +19,6 @@ namespace ProductWebAPI.Models
         [Required]
         [Range(1, 50000)]
         public decimal Price { get; set; }
-    }
+        public List<UserProduct> UserProducts { get; set; } = new List<UserProduct>();
+   }
 }

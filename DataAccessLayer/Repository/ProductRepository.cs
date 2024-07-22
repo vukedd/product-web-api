@@ -2,9 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ProductWebAPI.Data;
-using ProductWebAPI.DTO;
 using ProductWebAPI.Interface;
-using ProductWebAPI.Mapper;
 using ProductWebAPI.Models;
 
 namespace ProductWebAPI.Repository

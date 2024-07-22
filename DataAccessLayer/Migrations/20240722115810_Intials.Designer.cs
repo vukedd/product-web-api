@@ -8,17 +8,32 @@ using ProductWebAPI.Data;
 
 #nullable disable
 
-namespace ProductWebAPI.Migrations
+namespace DataAccessLayer.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20240716084711_SeedRole")]
-    partial class SeedRole
+    [Migration("20240722115810_Intials")]
+    partial class Intials
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "8.0.7");
+
+            modelBuilder.Entity("DataAccessLayer.Models.UserProduct", b =>
+                {
+                    b.Property<string>("UserId")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("ProductId")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("UserId", "ProductId");
+
+                    b.HasIndex("ProductId");
+
+                    b.ToTable("UserProducts");
+                });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
                 {
@@ -48,13 +63,13 @@ namespace ProductWebAPI.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "d98d7612-6aba-44ec-9624-c2884d1b9689",
+                            Id = "242a6605-a5b7-4294-84ff-20771d3e4408",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "81c2d494-9e6d-4166-9f1d-d6badcf741a6",
+                            Id = "c936dbf2-8118-49ef-970f-678bf4b2e9c5",
                             Name = "User",
                             NormalizedName = "USER"
                         });
@@ -250,6 +265,25 @@ namespace ProductWebAPI.Migrations
                     b.ToTable("Products");
                 });
 
+            modelBuilder.Entity("DataAccessLayer.Models.UserProduct", b =>
+                {
+                    b.HasOne("ProductWebAPI.Models.Product", "Product")
+                        .WithMany("UserProducts")
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ProductWebAPI.Models.AppUser", "User")
+                        .WithMany("UserProducts")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Product");
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -299,6 +333,16 @@ namespace ProductWebAPI.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("ProductWebAPI.Models.AppUser", b =>
+                {
+                    b.Navigation("UserProducts");
+                });
+
+            modelBuilder.Entity("ProductWebAPI.Models.Product", b =>
+                {
+                    b.Navigation("UserProducts");
                 });
 #pragma warning restore 612, 618
         }

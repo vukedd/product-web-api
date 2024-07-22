@@ -82,7 +82,6 @@ namespace ProductWebAPI.Controller
 
             var result = await _signInManager.CheckPasswordSignInAsync(user, login.Password, false);
 
-
             if (!result.Succeeded)
                 return Unauthorized("Invalid Creditentials");
 
