@@ -1,0 +1,62 @@
+body
+{
+    
+}
+
+#navbarNav
+{
+    display: flex;
+    justify-content: end;
+    margin-right: .5%;
+}
+
+#logInBtn
+{
+    padding-left: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 15px;
+    border-radius: 10px;
+}
+
+#logInBtn:hover
+{
+    background-color: rgb(131, 129, 129);
+    transition: .5s;
+}
+
+#LogInWindow
+{
+    background-color: Black;
+    color: white;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 20%;
+}
+
+#unTitle
+{
+    padding:5px;
+}
+
+#pwTitle
+{
+    padding: 5px 10px 5px 5px;
+}
+
+#LogInBtn
+{
+    margin-top: 15px;
+}
+
+#LogInHeader
+{
+    background-color:Black;
+    color: white;
+}
+
+#btn-close-lgn
+{
+    background-color: white;
+}
