@@ -1,4 +1,5 @@
-﻿using ProductWebAPI.Models;
+﻿using DataAccessLayer.Models;
+using ProductWebAPI.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,5 +11,6 @@ namespace DataAccessLayer.Interface
     public interface IUserProductRepository
     {
         Task<List<Product>> GetUserProducts(AppUser user);
+        Task<UserProduct> CreateUserProduct(UserProduct userProduct);
     }
 }

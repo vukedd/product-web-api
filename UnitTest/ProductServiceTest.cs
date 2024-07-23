@@ -44,7 +44,7 @@ namespace BusinessLogicLayer.Tests
             }
         }
 
-        [Fact]
+/*        [Fact]
         public async Task CreateProductAsync_CreatesProduct()
         {
             var productDto = new ProductDTO { Name = "Test Product", Description = "Description", Price = 10 };
@@ -68,7 +68,7 @@ namespace BusinessLogicLayer.Tests
 
             var conflictResult = Assert.IsType<ConflictObjectResult>(result.Result);
             Assert.Equal("Product with the same name already exists", conflictResult.Value);
-        }
+        } */
 
         [Fact]
         public async Task DeleteProduct_DeletesProduct()

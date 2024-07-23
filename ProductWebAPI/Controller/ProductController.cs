@@ -9,6 +9,8 @@ using ProductWebAPI.Mapper;
 using ProductWebAPI.Models;
 using ProductWebAPI.Interface;
 using BusinessLogicLayer.Interface;
+using BusinessLogicLayer.Extensions;
+using Microsoft.AspNetCore.Identity;
 
 namespace ProductWebAPI.Controller
 {
@@ -18,11 +20,13 @@ namespace ProductWebAPI.Controller
     {
         private readonly IProductService _productService;
         private readonly DataContext _context;
+        private readonly UserManager<AppUser> _userManager;
 
-        public ProductController(IProductService productService, DataContext context)
+        public ProductController(IProductService productService, DataContext context, UserManager<AppUser> userManager)
         {
             _productService = productService;
             _context = context;
+            _userManager = userManager;
         }
 
         [HttpGet]
@@ -79,11 +83,14 @@ namespace ProductWebAPI.Controller
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            var product = await _productService.CreateProductAsync(NewProduct);
+            var userId = User.GetId();
+            var user = _userManager.FindByIdAsync(userId);
+
+            var product = await _productService.CreateProductAsync(NewProduct, userId);
 
             if (product.Value != null)
             {
-                return Ok(product);
+                return Ok("Product sucessfully created!");
             }
 
             return StatusCode(409, "Product already exists!");

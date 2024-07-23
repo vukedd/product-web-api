@@ -1,5 +1,7 @@
-﻿using BusinessLogicLayer.Service_Interfaces;
+﻿using BusinessLogicLayer.Interface;
+using BusinessLogicLayer.Service_Interfaces;
 using DataAccessLayer.Interface;
+using DataAccessLayer.Models;
 using DataAccessLayer.Repository;
 using ProductWebAPI.Models;
 using System;
@@ -17,6 +19,18 @@ namespace BusinessLogicLayer.Service
         {
             _userProductRepo = userProductRepo;
         }
+
+        public Task<UserProduct> CreateUserProductAsync(int productId, string userId)
+        {
+            var userProductModel = new UserProduct
+            {
+                UserId = userId,
+                ProductId = productId
+            };
+
+            return _userProductRepo.CreateUserProduct(userProductModel); 
+        }
+
         public async Task<List<Product>> GetUserProductsAsync(AppUser user)
         {
             return await _userProductRepo.GetUserProducts(user);

@@ -1,4 +1,5 @@
 ﻿using DataAccessLayer.Helpers;
+using DataAccessLayer.Models;
 using Microsoft.AspNetCore.Mvc;
 using ProductWebAPI.DTO;
 using ProductWebAPI.Models;
@@ -12,7 +13,7 @@ namespace BusinessLogicLayer.Interface
 {
     public interface IProductService
     {
-        public Task<ActionResult<Product>> CreateProductAsync(ProductDTO product);
+        public Task<ActionResult<UserProduct>> CreateProductAsync(ProductDTO productDTO, string id);
         public Task<ActionResult<List<Product>>> GetProductsAsync(QueryObject query);
         public Task<ActionResult<Product>> GetProductByIdAsync(int productId);
         public Task<ActionResult<Product>> EditProductAsync(int productForChange, ProductDTO productChanges);

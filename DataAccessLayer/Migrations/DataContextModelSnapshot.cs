@@ -25,6 +25,9 @@ namespace DataAccessLayer.Migrations
                     b.Property<int>("ProductId")
                         .HasColumnType("INTEGER");
 
+                    b.Property<int>("Id")
+                        .HasColumnType("INTEGER");
+
                     b.HasKey("UserId", "ProductId");
 
                     b.HasIndex("ProductId");
@@ -60,13 +63,13 @@ namespace DataAccessLayer.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "242a6605-a5b7-4294-84ff-20771d3e4408",
+                            Id = "3d20ca5f-a75b-47ee-a11d-7b150e8aa201",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "c936dbf2-8118-49ef-970f-678bf4b2e9c5",
+                            Id = "30cc014a-3534-4760-9211-1102c9ef8eb2",
                             Name = "User",
                             NormalizedName = "USER"
                         });
@@ -254,10 +257,16 @@ namespace DataAccessLayer.Migrations
                         .HasMaxLength(30)
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("OwnerId")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
                     b.Property<decimal>("Price")
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("OwnerId");
 
                     b.ToTable("Products");
                 });
@@ -330,6 +339,17 @@ namespace DataAccessLayer.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("ProductWebAPI.Models.Product", b =>
+                {
+                    b.HasOne("ProductWebAPI.Models.AppUser", "Owner")
+                        .WithMany()
+                        .HasForeignKey("OwnerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Owner");
                 });
 
             modelBuilder.Entity("ProductWebAPI.Models.AppUser", b =>

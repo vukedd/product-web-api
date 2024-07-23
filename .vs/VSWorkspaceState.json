@@ -8,6 +8,6 @@
     "\\ProductWebAPI",
     "\\UnitTest"
   ],
-  "SelectedNode": "\\ProductWebAPI.sln",
+  "SelectedNode": "\\BusinessLogicLayer\\Service\\ProductService.cs",
   "PreviewInSolutionExplorer": false
 }

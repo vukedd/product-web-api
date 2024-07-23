@@ -1,5 +1,7 @@
 ﻿using BusinessLogicLayer.Interface;
+using BusinessLogicLayer.Service_Interfaces;
 using DataAccessLayer.Helpers;
+using DataAccessLayer.Models;
 using Microsoft.AspNetCore.Mvc;
 using ProductWebAPI.Data;
 using ProductWebAPI.DTO;
@@ -8,6 +10,7 @@ using ProductWebAPI.Mapper;
 using ProductWebAPI.Models;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,20 +21,40 @@ namespace BusinessLogicLayer.Service
     {
         private readonly DataContext _context;
         private readonly IProductRepository _productRepo;
+        private readonly IUserProductService _userProductService;
+        private DataContext context;
+        private IProductRepository @object;
 
-        public ProductService(DataContext context, IProductRepository productRepo)
+        public ProductService(DataContext context, IProductRepository @object)
+        {
+            this.context = context;
+            this.@object = @object;
+        }
+
+        public ProductService(DataContext context, IProductRepository productRepo, IUserProductService userProductService)
         {
             _context = context;
             _productRepo = productRepo;
+            _userProductService = userProductService;
         }
 
-        public async Task<ActionResult<Product>> CreateProductAsync(ProductDTO product)
+        public async Task<ActionResult<UserProduct>> CreateProductAsync(ProductDTO productDTO, string userId)
         {
-            if (_productRepo.ProductExists(product.Name))
+            if (_productRepo.ProductExists(productDTO.Name))
             {
                 return new ConflictObjectResult("Product with the same name already exists");
             }
-            return await _productRepo.CreateProduct(product.ToProductFromProductDTO());
+
+            var product = new Product
+            {
+                Name = productDTO.Name,
+                Description = productDTO.Description,
+                Price = productDTO.Price,
+                OwnerId = userId
+            };
+
+            var createdProduct = await _productRepo.CreateProduct(product);
+            return await _userProductService.CreateUserProductAsync(createdProduct.Value.Id, userId);
         }
 
         public async Task<ActionResult<Product?>> DeleteProduct(int productId)

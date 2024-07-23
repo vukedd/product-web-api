@@ -1,4 +1,5 @@
 ﻿using DataAccessLayer.Interface;
+using DataAccessLayer.Models;
 using Microsoft.EntityFrameworkCore;
 using ProductWebAPI.Data;
 using ProductWebAPI.Models;
@@ -26,6 +27,14 @@ namespace DataAccessLayer.Repository
                 Description = product.Product.Description,
                 Price = product.Product.Price
             }).ToListAsync();
+        }
+
+        public async Task<UserProduct> CreateUserProduct(UserProduct userProduct)
+        {
+            await _context.AddAsync(userProduct);
+            await _context.SaveChangesAsync();
+
+            return userProduct;
         }
     }
 }
