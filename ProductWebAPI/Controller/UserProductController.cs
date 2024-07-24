@@ -35,6 +35,18 @@ namespace PresentationLayer.Controller
             return Ok(userProducts);
         }
 
+        [HttpGet("Count")]
+        [AllowAnonymous]
+        public async Task<IActionResult> GetUserProductCount()
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            var count = await _userProductService.GetUserProductCount();
+
+            return Ok(count);
+        }
+
         // Da li prozivod postoji?
         // Da li je ulogovan korisnik vlasnik tog proizvoda?
         // Da li postoji vec element u join tabeli sa ta dva entiteta?

@@ -44,6 +44,12 @@ namespace ProductWebAPI.Repository
             return await _context.Products.Where(p => p.Id == id).FirstOrDefaultAsync();
         }
 
+        public int GetProductCount()
+        {
+            var AllProducts = _context.Products.ToList();
+            return AllProducts.Count();
+        }
+
         public async Task<ActionResult<List<Product>>> GetProducts(QueryObject query)
         {
             var products = _context.Products.AsQueryable();
@@ -55,6 +61,15 @@ namespace ProductWebAPI.Repository
 
             return await products.ToListAsync();
         }
+
+        public decimal GetProductsAveragePrice()
+        {
+            var productPriceSum = _context.Products.Sum(p => (int)p.Price);
+            var productCount = GetProductCount();
+
+            return productPriceSum / productCount;
+        }
+
         public bool ProductExists(string name)
         {
             var product = _context.Products.Where(p => p.Name.ToLower() == name.ToLower()).FirstOrDefault();
@@ -62,6 +77,18 @@ namespace ProductWebAPI.Repository
                 return true;
 
             return false;
+        }
+
+        public async Task<ActionResult<decimal>> GetProductsMinimumPrice()
+        {
+            var minProductPrice = await _context.Products.MinAsync(p => (int)p.Price);
+            return minProductPrice;
+        }
+
+        public async Task<ActionResult<decimal>> GetProductMaximumPrice()
+        {
+            var maxProductPrice = await _context.Products.MaxAsync(p => (int)p.Price);
+            return maxProductPrice;
         }
     }
 }

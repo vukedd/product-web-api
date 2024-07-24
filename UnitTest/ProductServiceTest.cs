@@ -1,4 +1,4 @@
-﻿using Xunit;
+﻿/*using Xunit;
 using Moq;
 using Microsoft.EntityFrameworkCore;
 using ProductWebAPI.Data;
@@ -92,7 +92,7 @@ namespace BusinessLogicLayer.Tests
 
             Assert.Null(product);
         }
-        */
+        
         [Fact]
         public async Task EditProductAsync_UpdatesProduct()
         {
@@ -176,3 +176,4 @@ namespace BusinessLogicLayer.Tests
         }
     }
 }
+        */

@@ -11,6 +11,7 @@ namespace DataAccessLayer.Interface
     public interface IUserProductRepository
     {
         Task<List<Product>> GetUserProducts(AppUser user);
+        Task<int> GetUserProductCount();
         Task<UserProduct> CreateUserProduct(UserProduct userProduct);
         Task<UserProduct> DeleteUserProduct(UserProduct userProductForDeletion);
     }

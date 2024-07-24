@@ -2,7 +2,7 @@
 ## TIAC Internship 2024
 
 ### Overview
-- This project is a C# Web API developed using the Entity and Identity Framework. It features user authorization, authentication, and JWT (JSON Web Tokens). The project follows a three-layer architecture and includes unit tests for the API services.
+- This project is a C# Web API developed using the Entity and Identity Framework. It features user authorization, authentication, and JWT (JSON Web Tokens). The project follows a three-layer architecture and includes unit tests for the API services
 
 ### Technologies Used
 - C# 

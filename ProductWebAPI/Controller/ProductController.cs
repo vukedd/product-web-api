@@ -16,6 +16,7 @@ namespace ProductWebAPI.Controller
 {
     [Route("api/[Controller]")]
     [ApiController]
+    [Authorize]
     public class ProductController : ControllerBase
     {
         private readonly IProductService _productService;
@@ -30,7 +31,6 @@ namespace ProductWebAPI.Controller
         }
 
         [HttpGet]
-        [Authorize]
         public async Task<ActionResult<List<Product>>> GetProducts([FromQuery] QueryObject query)
         {
             if (!ModelState.IsValid)
@@ -46,7 +46,6 @@ namespace ProductWebAPI.Controller
 
         [HttpGet]
         [Route("{id:int}")]
-        [Authorize]
         public async Task<ActionResult<Product>> GetProductById([FromRoute]int id)
         {
             if (!ModelState.IsValid)
@@ -60,9 +59,48 @@ namespace ProductWebAPI.Controller
             return Ok(product);
         }
 
+        [HttpGet("count")]
+        [AllowAnonymous]
+        public async Task<ActionResult<int>> GetProductCount()
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            return await _productService.GetProductCountAsync();
+        }
+
+        [HttpGet("AveragerRating")]
+        [AllowAnonymous]
+        public async Task<ActionResult<decimal>> GetProductsAveragePrice()
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            return await _productService.GetProductsAveragePriceAsync();
+        }
+
+        [HttpGet("Minimum")]
+        [AllowAnonymous]
+        public async Task<ActionResult<decimal>> GetProductMinimumPrice()
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            return await _productService.GetProductsMinimumPriceAsync();
+        }
+
+        [HttpGet("Maximum")]
+        [AllowAnonymous]
+        public async Task<ActionResult<decimal>> GetProductMaximumPrice()
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            return await _productService.GetProductMaximumPriceAsync();
+        }
+
         [HttpPut]
         [Route("{id:int}")]
-        [Authorize]
         public async Task<ActionResult<Product>> EditProduct([FromRoute]int id, [FromBody]ProductDTO productChanges)
         {
             if (!ModelState.IsValid)
@@ -77,7 +115,6 @@ namespace ProductWebAPI.Controller
         }
 
         [HttpPost]
-        [Authorize]
         public async Task<ActionResult<Product>> CreateProduct([FromBody]ProductDTO NewProduct)
         {
             if (!ModelState.IsValid)
@@ -98,7 +135,6 @@ namespace ProductWebAPI.Controller
 
         [HttpDelete]
         [Route("{id:int}")]
-        [Authorize]
         public async Task<ActionResult<Product>> DeleteProduct([FromRoute]int id)
         {
             if (!ModelState.IsValid)

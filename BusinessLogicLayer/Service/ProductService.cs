@@ -22,22 +22,6 @@ namespace BusinessLogicLayer.Service
         private readonly DataContext _context;
         private readonly IProductRepository _productRepo;
         private readonly IUserProductService _userProductService;
-        private DataContext context;
-        private IProductRepository @object;
-        private IProductRepository object1;
-        private IProductService object2;
-
-        public ProductService(DataContext context, IProductRepository @object)
-        {
-            this.context = context;
-            this.@object = @object;
-        }
-
-        public ProductService(IProductRepository object1, IProductService object2)
-        {
-            this.object1 = object1;
-            this.object2 = object2;
-        }
 
         public ProductService(DataContext context, IProductRepository productRepo, IUserProductService userProductService)
         {
@@ -103,9 +87,29 @@ namespace BusinessLogicLayer.Service
             return await _productRepo.GetProductById(productId);
         }
 
+        public async Task<ActionResult<int>> GetProductCountAsync()
+        {
+            return _productRepo.GetProductCount();
+        }
+
+        public async Task<ActionResult<decimal>> GetProductMaximumPriceAsync()
+        {
+            return await _productRepo.GetProductMaximumPrice();
+        }
+
         public async Task<ActionResult<List<Product>>> GetProductsAsync(QueryObject query)
         {
             return await _productRepo.GetProducts(query);
+        }
+
+        public async Task<ActionResult<decimal>> GetProductsAveragePriceAsync()
+        {
+            return _productRepo.GetProductsAveragePrice();
+        }
+
+        public async Task<ActionResult<decimal>> GetProductsMinimumPriceAsync()
+        {
+            return await _productRepo.GetProductsMinimumPrice();
         }
     }
 }

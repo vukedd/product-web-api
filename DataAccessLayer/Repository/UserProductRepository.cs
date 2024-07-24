@@ -44,5 +44,10 @@ namespace DataAccessLayer.Repository
 
             return userProductForDeletion;
         }
+
+        public async Task<int> GetUserProductCount()
+        {
+            return await _context.UserProducts.CountAsync();
+        }
     }
 }

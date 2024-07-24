@@ -37,6 +37,11 @@ namespace BusinessLogicLayer.Service
             return _userProductRepo.DeleteUserProduct(userProduct);
         }
 
+        public async Task<int> GetUserProductCount()
+        {
+            return await _userProductRepo.GetUserProductCount();
+        }
+
         public async Task<ICollection<Product>> GetUserProductsAsync(AppUser user)
         {
             return await _userProductRepo.GetUserProducts(user);
