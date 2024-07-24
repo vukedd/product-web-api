@@ -104,10 +104,12 @@ namespace ProductWebAPI.Controller
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            var product = await _productService.DeleteProduct(id);
+            var userId = User.GetId();
+
+            var product = await _productService.DeleteProduct(id, userId);
 
             if (product == null)
-                return NotFound(ModelState);
+                return BadRequest("The product isn't owned by you or it doesn't exist!");
 
             return Ok(product);
         }

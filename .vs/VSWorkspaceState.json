@@ -6,8 +6,9 @@
     "\\DataAccessLayer",
     "\\DataAccessLayer\\Data",
     "\\ProductWebAPI",
+    "\\ProductWebAPI\\Controller",
     "\\UnitTest"
   ],
-  "SelectedNode": "\\BusinessLogicLayer\\Service\\ProductService.cs",
+  "SelectedNode": "\\ProductWebAPI.sln",
   "PreviewInSolutionExplorer": false
 }

@@ -24,11 +24,19 @@ namespace BusinessLogicLayer.Service
         private readonly IUserProductService _userProductService;
         private DataContext context;
         private IProductRepository @object;
+        private IProductRepository object1;
+        private IProductService object2;
 
         public ProductService(DataContext context, IProductRepository @object)
         {
             this.context = context;
             this.@object = @object;
+        }
+
+        public ProductService(IProductRepository object1, IProductService object2)
+        {
+            this.object1 = object1;
+            this.object2 = object2;
         }
 
         public ProductService(DataContext context, IProductRepository productRepo, IUserProductService userProductService)
@@ -57,13 +65,23 @@ namespace BusinessLogicLayer.Service
             return await _userProductService.CreateUserProductAsync(createdProduct.Value.Id, userId);
         }
 
-        public async Task<ActionResult<Product?>> DeleteProduct(int productId)
+        public async Task<ActionResult<Product?>> DeleteProduct(int productId, string userId)
         {
             var product = _context.Products.Where(p => p.Id == productId).FirstOrDefault();
             if (product == null)
                 return null;
 
-            return await _productRepo.DeleteProduct(product);
+            if (product.OwnerId == userId)
+            {
+                var data = _context.UserProducts.Where(up => up.ProductId == productId).ToList();
+                foreach (var productDel in data)
+                {
+                    await _userProductService.DeleteUserProductAsync(productDel);
+                }
+                return await _productRepo.DeleteProduct(product);
+            }
+
+            return null;
         }
 
         public async Task<ActionResult<Product>> EditProductAsync(int idOfProductForChange, ProductDTO productChanges)

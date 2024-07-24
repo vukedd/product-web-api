@@ -12,6 +12,7 @@ namespace PresentationLayer.Controller
 {
     [Route("api/userProducts")]
     [ApiController]
+    [Authorize]
     public class UserProductController : ControllerBase
     {
         private readonly UserManager<AppUser> _userManager;
@@ -25,10 +26,8 @@ namespace PresentationLayer.Controller
         }
 
         [HttpGet]
-        [Authorize]
         public async Task<IActionResult> GetUserProducts()
         {
-            // User je nasledjen iz controlerBase-a i on se odnosi na korisnika u sesiji
             var userId = User.GetId();
             var appUser = await _userManager.FindByIdAsync(userId);
             var userProducts = await _userProductService.GetUserProductsAsync(appUser);
@@ -36,27 +35,48 @@ namespace PresentationLayer.Controller
             return Ok(userProducts);
         }
 
+        // Da li prozivod postoji?
+        // Da li je ulogovan korisnik vlasnik tog proizvoda?
+        // Da li postoji vec element u join tabeli sa ta dva entiteta?
+
         [HttpPost]
-        [Authorize]
-        public async Task<IActionResult> CreateUserProducts([FromQuery] int ProductId)
+        public async Task<IActionResult> CreateUserProducts([FromQuery] int ProductId, [FromQuery]string UserId)
         {
-            var userId = User.GetId();
-            var user = await _userManager.FindByIdAsync(userId);
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
 
             var product = _productService.GetProductByIdAsync(ProductId);
             if (product == null)
-                return BadRequest(ModelState);
+                return NotFound();
 
-            var products = await _userProductService.GetUserProductsAsync(user);
+            var ProductAssignerId = User.GetId();
+            var ProductAssigner = await _userManager.FindByIdAsync(ProductAssignerId);
 
-            if (products.Any(p => p.Id == ProductId))
-                return BadRequest("User already connected with this product.");
+            var productList = await _userProductService.GetUserProductsAsync(ProductAssigner);
 
-            var userProduct = _userProductService.CreateUserProductAsync(ProductId, userId);
+            var FindProduct = productList.Where(p => p.Id == ProductId).FirstOrDefault();
+            if (FindProduct == null)
+                return BadRequest("You cannot assign a product u don't own!");
 
-            return Ok(userProduct);
+            var UserToAssign = await _userManager.FindByIdAsync(UserId);
+            var AssigneProductList = await _userProductService.GetUserProductsAsync(UserToAssign);
+            var ExistingCheck = AssigneProductList.Where(p => p.Id == ProductId).FirstOrDefault();
+            if (ExistingCheck != null)
+                return BadRequest("Product already assigned to selected User!");
+
+            var response = await _userProductService.CreateUserProductAsync(ProductId, UserId);
+
+            return Ok("Product successfully assigned!");
+
         }
+/*
+        [HttpDelete]
+        [Authorize]
+        public async Task<IActionResult> DeleteUserProduct([FromQuery])
+        {
 
+        }
+*/
     }
 
 }

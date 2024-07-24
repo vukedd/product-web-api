@@ -12,7 +12,8 @@ namespace BusinessLogicLayer.Service_Interfaces
 {
     public interface IUserProductService
     {
-        public Task<List<Product>> GetUserProductsAsync(AppUser user);
-        public Task<UserProduct> CreateUserProductAsync(int productId, string userId);
+        public Task<ICollection<Product>> GetUserProductsAsync(AppUser user);
+        public Task<UserProduct> CreateUserProductAsync(int productId, string UserId);
+        public Task<UserProduct> DeleteUserProductAsync(UserProduct userProduct);
     }
 }

@@ -12,5 +12,6 @@ namespace DataAccessLayer.Interface
     {
         Task<List<Product>> GetUserProducts(AppUser user);
         Task<UserProduct> CreateUserProduct(UserProduct userProduct);
+        Task<UserProduct> DeleteUserProduct(UserProduct userProductForDeletion);
     }
 }

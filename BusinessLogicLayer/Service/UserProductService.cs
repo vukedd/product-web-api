@@ -20,18 +20,24 @@ namespace BusinessLogicLayer.Service
             _userProductRepo = userProductRepo;
         }
 
-        public Task<UserProduct> CreateUserProductAsync(int productId, string userId)
+        public Task<UserProduct> CreateUserProductAsync(int productId, string UserId)
         {
+            
             var userProductModel = new UserProduct
             {
-                UserId = userId,
+                UserId = UserId,
                 ProductId = productId
             };
 
             return _userProductRepo.CreateUserProduct(userProductModel); 
         }
 
-        public async Task<List<Product>> GetUserProductsAsync(AppUser user)
+        public Task<UserProduct> DeleteUserProductAsync(UserProduct userProduct)
+        {
+            return _userProductRepo.DeleteUserProduct(userProduct);
+        }
+
+        public async Task<ICollection<Product>> GetUserProductsAsync(AppUser user)
         {
             return await _userProductRepo.GetUserProducts(user);
         }

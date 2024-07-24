@@ -17,7 +17,7 @@ namespace BusinessLogicLayer.Interface
         public Task<ActionResult<List<Product>>> GetProductsAsync(QueryObject query);
         public Task<ActionResult<Product>> GetProductByIdAsync(int productId);
         public Task<ActionResult<Product>> EditProductAsync(int productForChange, ProductDTO productChanges);
-        public Task<ActionResult<Product>> DeleteProduct(int productId);
+        public Task<ActionResult<Product>> DeleteProduct(int productId, string userId);
         
 
     }

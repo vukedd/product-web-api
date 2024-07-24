@@ -36,5 +36,13 @@ namespace DataAccessLayer.Repository
 
             return userProduct;
         }
+
+        public async Task<UserProduct> DeleteUserProduct(UserProduct userProductForDeletion)
+        {
+            _context.Remove(userProductForDeletion);
+            await _context.SaveChangesAsync();
+
+            return userProductForDeletion;
+        }
     }
 }

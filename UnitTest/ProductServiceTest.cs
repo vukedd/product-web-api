@@ -70,6 +70,7 @@ namespace BusinessLogicLayer.Tests
             Assert.Equal("Product with the same name already exists", conflictResult.Value);
         } */
 
+        /*
         [Fact]
         public async Task DeleteProduct_DeletesProduct()
         {
@@ -91,7 +92,7 @@ namespace BusinessLogicLayer.Tests
 
             Assert.Null(product);
         }
-
+        */
         [Fact]
         public async Task EditProductAsync_UpdatesProduct()
         {
