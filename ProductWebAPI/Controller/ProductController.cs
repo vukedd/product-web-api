@@ -11,6 +11,8 @@ using ProductWebAPI.Interface;
 using BusinessLogicLayer.Interface;
 using BusinessLogicLayer.Extensions;
 using Microsoft.AspNetCore.Identity;
+using BusinessLogicLayer.DTO;
+using System.Numerics;
 
 namespace ProductWebAPI.Controller
 {
@@ -59,44 +61,26 @@ namespace ProductWebAPI.Controller
             return Ok(product);
         }
 
-        [HttpGet("count")]
+        [HttpGet("statistics")]
         [AllowAnonymous]
-        public async Task<ActionResult<int>> GetProductCount()
+        public async Task<ActionResult<ProductStatsDTO>> GetProductStats()
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            return await _productService.GetProductCountAsync();
-        }
+            var ProductCount = await _productService.GetProductCountAsync();
+            var ProductsAveragePrice = await _productService.GetProductsAveragePriceAsync();
+            var ProductMinimumPrice = await _productService.GetProductsMinimumPriceAsync();
+            var ProductMaximumPrice = await _productService.GetProductMaximumPriceAsync();
 
-        [HttpGet("AveragerRating")]
-        [AllowAnonymous]
-        public async Task<ActionResult<decimal>> GetProductsAveragePrice()
-        {
-            if (!ModelState.IsValid)
-                return BadRequest(ModelState);
 
-            return await _productService.GetProductsAveragePriceAsync();
-        }
-
-        [HttpGet("Minimum")]
-        [AllowAnonymous]
-        public async Task<ActionResult<decimal>> GetProductMinimumPrice()
-        {
-            if (!ModelState.IsValid)
-                return BadRequest(ModelState);
-
-            return await _productService.GetProductsMinimumPriceAsync();
-        }
-
-        [HttpGet("Maximum")]
-        [AllowAnonymous]
-        public async Task<ActionResult<decimal>> GetProductMaximumPrice()
-        {
-            if (!ModelState.IsValid)
-                return BadRequest(ModelState);
-
-            return await _productService.GetProductMaximumPriceAsync();
+            return Ok(new ProductStatsDTO
+            {
+                ProductCount = ProductCount.Value,
+                ProductsAveragePrice = ProductsAveragePrice.Value,
+                ProductMaximumPrice = ProductMaximumPrice.Value,
+                ProductMinimumPrice = ProductMinimumPrice.Value
+            });
         }
 
         [HttpPut]

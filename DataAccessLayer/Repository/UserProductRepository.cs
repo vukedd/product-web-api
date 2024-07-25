@@ -49,5 +49,10 @@ namespace DataAccessLayer.Repository
         {
             return await _context.UserProducts.CountAsync();
         }
+
+        public async Task<ICollection<UserProduct>> GetAllUserProducts()
+        {
+            return await _context.UserProducts.ToListAsync();
+        }
     }
 }

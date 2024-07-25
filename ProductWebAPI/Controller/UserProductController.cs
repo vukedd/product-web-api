@@ -1,6 +1,7 @@
 ﻿using BusinessLogicLayer.Extensions;
 using BusinessLogicLayer.Interface;
 using BusinessLogicLayer.Service_Interfaces;
+using DataAccessLayer.Helpers;
 using DataAccessLayer.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -37,7 +38,7 @@ namespace PresentationLayer.Controller
 
         [HttpGet("Count")]
         [AllowAnonymous]
-        public async Task<IActionResult> GetUserProductCount()
+        private async Task<IActionResult> GetUserProductCount()
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
@@ -47,9 +48,21 @@ namespace PresentationLayer.Controller
             return Ok(count);
         }
 
-        // Da li prozivod postoji?
-        // Da li je ulogovan korisnik vlasnik tog proizvoda?
-        // Da li postoji vec element u join tabeli sa ta dva entiteta?
+        [HttpGet("Popularity")]
+        [AllowAnonymous]
+        public async Task<IActionResult> GetProductPopularityList([FromQuery] QueryObjectUserProduct query)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            var stats = await _userProductService.GetProductPopularityList(query);
+
+            return Ok(stats);
+        }
+
+// Da li prozivod postoji?
+// Da li je ulogovan korisnik vlasnik tog proizvoda?
+// Da li postoji vec element u join tabeli sa ta dva entiteta?
 
         [HttpPost]
         public async Task<IActionResult> CreateUserProducts([FromQuery] int ProductId, [FromQuery]string UserId)
@@ -81,14 +94,6 @@ namespace PresentationLayer.Controller
             return Ok("Product successfully assigned!");
 
         }
-/*
-        [HttpDelete]
-        [Authorize]
-        public async Task<IActionResult> DeleteUserProduct([FromQuery])
-        {
-
-        }
-*/
     }
 
 }

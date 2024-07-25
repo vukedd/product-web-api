@@ -1,4 +1,5 @@
-﻿using ProductWebAPI.DTO;
+﻿using BusinessLogicLayer.DTO;
+using ProductWebAPI.DTO;
 using ProductWebAPI.Models;
 
 namespace ProductWebAPI.Mapper
@@ -22,6 +23,17 @@ namespace ProductWebAPI.Mapper
                 Name = productDTO.Name,
                 Description = productDTO.Description,
                 Price = productDTO.Price
+            };
+        }
+
+        public static ProductPopularityDTO ToProductPopularityDTO(this Product product, int ConnectionCount, string OwnerUsername)
+        {
+            return new ProductPopularityDTO
+            {
+                Id = product.Id,
+                ProductName = product.Name,
+                NumberOfConnections = ConnectionCount,
+                OwnerName = OwnerUsername.ToString()
             };
         }
     }
