@@ -1,19 +1,31 @@
-import axios from 'axios'
-
-var requestUrl = "https://localhost:7293/api/account/login";
-
 let SignInButton = document.getElementById("LogInBtn")
+let LogInForm = document.getElementById("LogInForm")
 
-SignInButton.addEventListener("click", LogInRequest)
-function LogInRequest()
-{
-    let request = new XMLHttpRequest();
-    request.onreadystatechange() = function() {
-    if (this.readyState == 4)
-        {
-            console.log("a")
+SignInButton.addEventListener("click", function LogInRequest() {
+    var PasswordData = document.getElementById("passwordData").value;
+    var UsernameData = document.getElementById("usernameData").value;
+    var lgnBtn = document.getElementById("lgnBtn")
+    async function postData(data) {
+        const url = 'https://localhost:7293/api/Account/login';
+
+        try {
+            const response = await axios.post(url, data, {
+                headers: {
+                    'Content-Type': 'application/json',
+                }
+            });
+            
+            sessionStorage.setItem("JWT", response.data.token)
+            location.reload()
+            window.location.href = "indexloggedin.html";
+        } catch (error) {
+            console.error('There has been a problem with your axios operation:', error);
         }
     }
-    request.open("POST", requestUrl);
-    request.send();
-}
+
+    const myData = {
+            username: UsernameData, 
+            password: PasswordData
+    };
+    postData(myData);
+});

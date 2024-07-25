@@ -12,41 +12,15 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   </head>
-  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" id="LogInWindow">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header" id="LogInHeader">
-          <h1 class="modal-title fs-5" id="exampleModalLabel">Log In</h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="btn-close-lgn"></button>
-        </div>
-        <form id="LogInForm">
-        <div class="modal-body" id="LogInWindow">
-          <div id="LogInWindowChild1">
-            <span id="unTitle">Username: </span>
-            <input type="text" id="usernameData">
-          </div>
-          <br>
-          <div id="LogInWindowChild2">
-              <span id="pwTitle">Password: </span>
-              <input type="password" id="passwordData">
-          </div>
-          <button type="button" class="btn btn-outline-light" id="LogInBtn">Log In</button>
-        </div>
-        </form>
-      </div>
-    </div>
-  </div>
+
 <body style="background:rgb(131, 129, 129)">
     <nav class="navbar navbar-expand-lg bg-body-dark bg-dark" data-bs-theme="dark">
         <div class="container-fluid">
           <a class="navbar-brand" href="#">Product API</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" id="lgnBtn">
-            <span class="navbar-toggler-icon"></span>
-          </button>
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
               <li class="nav-item">
-                <a class="nav-link active" href="#" id="logInBtn" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="bi bi-person  -fill"></i></a>
+                <a class="nav-link active" href="#" id="logInBtn">Logged in</a>
               </li>
             </ul>
           </div>

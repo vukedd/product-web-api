@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Cors;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Razor.TagHelpers;
 using Microsoft.EntityFrameworkCore;
@@ -10,6 +11,7 @@ namespace ProductWebAPI.Controller
 {
     [Route("api/[Controller]")]
     [ApiController]
+    [EnableCors("AllowSpecificOrigin")]
     public class AccountController : ControllerBase
     {
         private readonly UserManager<AppUser> _userManager;

@@ -95,6 +95,15 @@ internal class Program
         builder.Services.AddScoped<IUserProductService, UserProductService>();
         builder.Services.AddScoped<ITokenService, TokenService>();
 
+        builder.Services.AddCors(options =>
+        {
+            options.AddPolicy("AllowSpecificOrigin",
+                policy =>
+                {
+                    policy.WithOrigins("http://127.0.0.1:5500").AllowAnyMethod().AllowAnyHeader();
+                });
+        });
+
         var app = builder.Build();
 
         if (app.Environment.IsDevelopment())
@@ -104,38 +113,12 @@ internal class Program
         }
 
         app.UseHttpsRedirection();
+        app.UseCors("AllowSpecificOrigin");
         app.UseAuthentication();
-        app.UseAuthorization();
-
         app.UseAuthorization();
 
         app.MapControllers();
 
         app.Run();
     }
-    public void ConfigureServices(IServiceCollection services)
-    {
-        services.AddControllers();
-        services.AddCors(options =>
-        {
-            options.AddPolicy("AllowFrontend",
-                builder =>
-                {
-                    builder.WithOrigins("http://localhost:5500/index.html") // Adjust for your frontend's URL
-                           .AllowAnyMethod()
-                           .AllowAnyHeader();
-                });
-        });
-    }
-
-    public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
-    {
-        app.UseCors("AllowFrontend");
-        app.UseRouting();
-        app.UseEndpoints(endpoints =>
-        {
-            endpoints.MapControllers();
-        });
-    }
-
 }

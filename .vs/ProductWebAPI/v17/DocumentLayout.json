@@ -3,16 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\Thinkpad\\source\\repos\\ProductWebAPI\\Product-Web-API\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{5B1E4630-CB5B-452D-923A-B02A0CD5BE81}|ProductWebAPI\\PresentationLayer.csproj|c:\\users\\thinkpad\\source\\repos\\productwebapi\\product-web-api\\productwebapi\\controller\\userproductcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5B1E4630-CB5B-452D-923A-B02A0CD5BE81}|ProductWebAPI\\PresentationLayer.csproj|solutionrelative:productwebapi\\controller\\userproductcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{5B1E4630-CB5B-452D-923A-B02A0CD5BE81}|ProductWebAPI\\PresentationLayer.csproj|c:\\users\\thinkpad\\source\\repos\\productwebapi\\product-web-api\\productwebapi\\controller\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5B1E4630-CB5B-452D-923A-B02A0CD5BE81}|ProductWebAPI\\PresentationLayer.csproj|solutionrelative:productwebapi\\controller\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CF00ED05-4D7D-4A26-BEE5-34B8E6F5483F}|BusinessLogicLayer\\BusinessLogicLayer.csproj|c:\\users\\thinkpad\\source\\repos\\productwebapi\\product-web-api\\businesslogiclayer\\service\\userproductservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CF00ED05-4D7D-4A26-BEE5-34B8E6F5483F}|BusinessLogicLayer\\BusinessLogicLayer.csproj|solutionrelative:businesslogiclayer\\service\\userproductservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5B1E4630-CB5B-452D-923A-B02A0CD5BE81}|ProductWebAPI\\PresentationLayer.csproj|c:\\users\\thinkpad\\source\\repos\\productwebapi\\product-web-api\\productwebapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5B1E4630-CB5B-452D-923A-B02A0CD5BE81}|ProductWebAPI\\PresentationLayer.csproj|solutionrelative:productwebapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{5B1E4630-CB5B-452D-923A-B02A0CD5BE81}|ProductWebAPI\\PresentationLayer.csproj|c:\\users\\thinkpad\\source\\repos\\productwebapi\\product-web-api\\productwebapi\\controller\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5B1E4630-CB5B-452D-923A-B02A0CD5BE81}|ProductWebAPI\\PresentationLayer.csproj|solutionrelative:productwebapi\\controller\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CF00ED05-4D7D-4A26-BEE5-34B8E6F5483F}|BusinessLogicLayer\\BusinessLogicLayer.csproj|c:\\users\\thinkpad\\source\\repos\\productwebapi\\product-web-api\\businesslogiclayer\\service\\userproductservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CF00ED05-4D7D-4A26-BEE5-34B8E6F5483F}|BusinessLogicLayer\\BusinessLogicLayer.csproj|solutionrelative:businesslogiclayer\\service\\userproductservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{5B1E4630-CB5B-452D-923A-B02A0CD5BE81}|ProductWebAPI\\PresentationLayer.csproj|c:\\users\\thinkpad\\source\\repos\\productwebapi\\product-web-api\\productwebapi\\controller\\userproductcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5B1E4630-CB5B-452D-923A-B02A0CD5BE81}|ProductWebAPI\\PresentationLayer.csproj|solutionrelative:productwebapi\\controller\\userproductcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{CF00ED05-4D7D-4A26-BEE5-34B8E6F5483F}|BusinessLogicLayer\\BusinessLogicLayer.csproj|c:\\users\\thinkpad\\source\\repos\\productwebapi\\product-web-api\\businesslogiclayer\\dto\\productpopularitydto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -74,23 +82,49 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "AccountController.cs",
+              "DocumentMoniker": "C:\\Users\\Thinkpad\\source\\repos\\ProductWebAPI\\Product-Web-API\\ProductWebAPI\\Controller\\AccountController.cs",
+              "RelativeDocumentMoniker": "ProductWebAPI\\Controller\\AccountController.cs",
+              "ToolTip": "C:\\Users\\Thinkpad\\source\\repos\\ProductWebAPI\\Product-Web-API\\ProductWebAPI\\Controller\\AccountController.cs",
+              "RelativeToolTip": "ProductWebAPI\\Controller\\AccountController.cs",
+              "ViewState": "AQIAACMAAAAAAAAAAAAowEkAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-25T13:00:03.705Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Thinkpad\\source\\repos\\ProductWebAPI\\Product-Web-API\\ProductWebAPI\\Program.cs",
+              "RelativeDocumentMoniker": "ProductWebAPI\\Program.cs",
+              "ToolTip": "C:\\Users\\Thinkpad\\source\\repos\\ProductWebAPI\\Product-Web-API\\ProductWebAPI\\Program.cs",
+              "RelativeToolTip": "ProductWebAPI\\Program.cs",
+              "ViewState": "AQIAAGUAAAAAAAAAAIAwwHkAAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-25T12:56:54.175Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "UserProductService.cs",
               "DocumentMoniker": "C:\\Users\\Thinkpad\\source\\repos\\ProductWebAPI\\Product-Web-API\\BusinessLogicLayer\\Service\\UserProductService.cs",
               "RelativeDocumentMoniker": "BusinessLogicLayer\\Service\\UserProductService.cs",
               "ToolTip": "C:\\Users\\Thinkpad\\source\\repos\\ProductWebAPI\\Product-Web-API\\BusinessLogicLayer\\Service\\UserProductService.cs",
               "RelativeToolTip": "BusinessLogicLayer\\Service\\UserProductService.cs",
-              "ViewState": "AQIAADIAAAAAAAAAAAAswFkAAAAIAAAA",
+              "ViewState": "AQIAACUAAAAAAAAAAAAYwFkAAAAIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-24T17:45:10.402Z"
+              "WhenOpened": "2024-07-24T17:45:10.402Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "ProductController.cs",
               "DocumentMoniker": "C:\\Users\\Thinkpad\\source\\repos\\ProductWebAPI\\Product-Web-API\\ProductWebAPI\\Controller\\ProductController.cs",
               "RelativeDocumentMoniker": "ProductWebAPI\\Controller\\ProductController.cs",
@@ -102,7 +136,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 11,
               "Title": "ProductRepository.cs",
               "DocumentMoniker": "C:\\Users\\Thinkpad\\source\\repos\\ProductWebAPI\\Product-Web-API\\DataAccessLayer\\Repository\\ProductRepository.cs",
               "RelativeDocumentMoniker": "DataAccessLayer\\Repository\\ProductRepository.cs",
@@ -114,7 +148,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 12,
               "Title": "QueryObject.cs",
               "DocumentMoniker": "C:\\Users\\Thinkpad\\source\\repos\\ProductWebAPI\\Product-Web-API\\DataAccessLayer\\Helpers\\QueryObject.cs",
               "RelativeDocumentMoniker": "DataAccessLayer\\Helpers\\QueryObject.cs",
@@ -126,7 +160,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 9,
               "Title": "QueryObjectUserProduct.cs",
               "DocumentMoniker": "C:\\Users\\Thinkpad\\source\\repos\\ProductWebAPI\\Product-Web-API\\DataAccessLayer\\Helpers\\QueryObjectUserProduct.cs",
               "RelativeDocumentMoniker": "DataAccessLayer\\Helpers\\QueryObjectUserProduct.cs",
@@ -138,7 +172,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 10,
               "Title": "ProductService.cs",
               "DocumentMoniker": "C:\\Users\\Thinkpad\\source\\repos\\ProductWebAPI\\Product-Web-API\\BusinessLogicLayer\\Service\\ProductService.cs",
               "RelativeDocumentMoniker": "BusinessLogicLayer\\Service\\ProductService.cs",
@@ -150,7 +184,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 4,
               "Title": "UserProductController.cs",
               "DocumentMoniker": "C:\\Users\\Thinkpad\\source\\repos\\ProductWebAPI\\Product-Web-API\\ProductWebAPI\\Controller\\UserProductController.cs",
               "RelativeDocumentMoniker": "ProductWebAPI\\Controller\\UserProductController.cs",
@@ -158,12 +192,11 @@
               "RelativeToolTip": "ProductWebAPI\\Controller\\UserProductController.cs",
               "ViewState": "AQIAADoAAAAAAAAAAAAIwE4AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-24T17:35:57.804Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-07-24T17:35:57.804Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "ProductPopularityDTO.cs",
               "DocumentMoniker": "C:\\Users\\Thinkpad\\source\\repos\\ProductWebAPI\\Product-Web-API\\BusinessLogicLayer\\DTO\\ProductPopularityDTO.cs",
               "RelativeDocumentMoniker": "BusinessLogicLayer\\DTO\\ProductPopularityDTO.cs",
@@ -175,7 +208,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "UserProductRepository.cs",
               "DocumentMoniker": "C:\\Users\\Thinkpad\\source\\repos\\ProductWebAPI\\Product-Web-API\\DataAccessLayer\\Repository\\UserProductRepository.cs",
               "RelativeDocumentMoniker": "DataAccessLayer\\Repository\\UserProductRepository.cs",
@@ -187,7 +220,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 7,
               "Title": "IProductRepository.cs",
               "DocumentMoniker": "C:\\Users\\Thinkpad\\source\\repos\\ProductWebAPI\\Product-Web-API\\DataAccessLayer\\Interface\\IProductRepository.cs",
               "RelativeDocumentMoniker": "DataAccessLayer\\Interface\\IProductRepository.cs",
@@ -199,7 +232,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 8,
               "Title": "ProductStatsDTO.cs",
               "DocumentMoniker": "C:\\Users\\Thinkpad\\source\\repos\\ProductWebAPI\\Product-Web-API\\BusinessLogicLayer\\DTO\\ProductStatsDTO.cs",
               "RelativeDocumentMoniker": "BusinessLogicLayer\\DTO\\ProductStatsDTO.cs",
@@ -211,7 +244,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 13,
               "Title": "ProductMapper.cs",
               "DocumentMoniker": "C:\\Users\\Thinkpad\\source\\repos\\ProductWebAPI\\Product-Web-API\\BusinessLogicLayer\\Mapper\\ProductMapper.cs",
               "RelativeDocumentMoniker": "BusinessLogicLayer\\Mapper\\ProductMapper.cs",
@@ -223,7 +256,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 15,
               "Title": "ClaimsExtensions.cs",
               "DocumentMoniker": "C:\\Users\\Thinkpad\\source\\repos\\ProductWebAPI\\Product-Web-API\\BusinessLogicLayer\\Extensions\\ClaimsExtensions.cs",
               "RelativeDocumentMoniker": "BusinessLogicLayer\\Extensions\\ClaimsExtensions.cs",
@@ -235,7 +268,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 14,
               "Title": "AppUser.cs",
               "DocumentMoniker": "C:\\Users\\Thinkpad\\source\\repos\\ProductWebAPI\\Product-Web-API\\DataAccessLayer\\Models\\AppUser.cs",
               "RelativeDocumentMoniker": "DataAccessLayer\\Models\\AppUser.cs",
@@ -247,7 +280,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 16,
               "Title": "IUserProductService.cs",
               "DocumentMoniker": "C:\\Users\\Thinkpad\\source\\repos\\ProductWebAPI\\Product-Web-API\\BusinessLogicLayer\\Service Interfaces\\IUserProductService.cs",
               "RelativeDocumentMoniker": "BusinessLogicLayer\\Service Interfaces\\IUserProductService.cs",
@@ -259,7 +292,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 17,
               "Title": "IUserProductRepository.cs",
               "DocumentMoniker": "C:\\Users\\Thinkpad\\source\\repos\\ProductWebAPI\\Product-Web-API\\DataAccessLayer\\Interface\\IUserProductRepository.cs",
               "RelativeDocumentMoniker": "DataAccessLayer\\Interface\\IUserProductRepository.cs",

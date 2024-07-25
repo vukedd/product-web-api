@@ -9,6 +9,6 @@
     "\\ProductWebAPI\\Controller",
     "\\UnitTest"
   ],
-  "SelectedNode": "\\ProductWebAPI.sln",
+  "SelectedNode": "\\ProductWebAPI\\Controller\\AccountController.cs",
   "PreviewInSolutionExplorer": false
 }
