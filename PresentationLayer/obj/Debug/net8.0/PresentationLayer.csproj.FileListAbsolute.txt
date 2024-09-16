@@ -1,4 +1,0 @@
-C:\Users\Thinkpad\source\repos\ProductWebAPI\PresentationLayer\obj\Debug\net8.0\PresentationLayer.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\Thinkpad\source\repos\ProductWebAPI\PresentationLayer\obj\Debug\net8.0\PresentationLayer.AssemblyInfoInputs.cache
-C:\Users\Thinkpad\source\repos\ProductWebAPI\PresentationLayer\obj\Debug\net8.0\PresentationLayer.AssemblyInfo.cs
-C:\Users\Thinkpad\source\repos\ProductWebAPI\PresentationLayer\obj\Debug\net8.0\PresentationLayer.csproj.CoreCompileInputs.cache
