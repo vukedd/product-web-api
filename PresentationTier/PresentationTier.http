@@ -1,6 +1,0 @@
-@PresentationTier_HostAddress = http://localhost:5014
-
-GET {{PresentationTier_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###
